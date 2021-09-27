@@ -1,10 +1,10 @@
 
-<!-- saved from url=(0039)http://56shogi.com/99shogi/99shogi.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
 <title>JavaScript将棋盤</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-
-<script type="text/javascript" src="./img/99shogi.js.ダウンロード"></script>
+<script type="text/javascript" src="./js/shogi.js"></script>
 
 
 </head>
@@ -220,7 +220,9 @@
 </div>
 
 
-
+<div id="selected_black" style="position:absolute;width:45px;height:45px">
+<img style="display:block;position:relative;width:45px;height:45px" src=./img/selected_black.png>
+</div>
 
 <div id="selected_white" style="position:absolute;width:43px;height:43px">
 <img style="display:block;position:relative;width:43px;height:43px" src="./img/selected_white.png">
@@ -244,332 +246,8 @@
 </div>
 
 <div style="position:absolute;width:450px;height:450px;left:170px" id="board">
-<img src="./img/ban.png">
-<div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 20px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 66px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 112px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 158px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 204px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 250px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 296px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 342px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_black.png">
-</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 388px;">
-<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_black.png">
-</div></div>
+<img src=./img/ban.png>
+</div>
 
 <div style="position:absolute;width:153px;height:230px">
 <img src="./img/komadai.png">
@@ -577,13 +255,12 @@
 </div>
 </div>
 
-<div style="position:absolute;top:500px" id="TebanMessage">後手番です<br></div>
+<div style = "position:absolute;top:500px"id="TebanMessage"></div>
 </div>
 
 
+</body>
+</html>
 
 
 
-
-
-</body></html>
