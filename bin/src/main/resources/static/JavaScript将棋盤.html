@@ -1,0 +1,589 @@
+
+<!-- saved from url=(0039)http://56shogi.com/99shogi/99shogi.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaScript将棋盤</title>
+
+
+<script type="text/javascript" src="./JavaScript将棋盤_files/99shogi.js.ダウンロード"></script>
+
+
+</head>
+
+<body>
+
+<div style="display:none">
+
+
+<div id="cell_board" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div>
+
+<div id="cell_capture" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_capture.png">
+</div>
+
+<div id="FU_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div>
+
+<div id="KY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_black.png">
+</div>
+
+<div id="KE_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_black.png">
+</div>
+
+<div id="GI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_black.png">
+</div>
+
+<div id="KI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_black.png">
+</div>
+
+<div id="HI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_black.png">
+</div>
+
+<div id="KA_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_black.png">
+</div>
+
+<div id="OU_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_black.png">
+</div>
+
+<div id="TO_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/to_black.png">
+</div>
+
+<div id="NY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ny_black.png">
+</div>
+
+<div id="NK_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/nk_black.png">
+</div>
+
+<div id="NG_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ng_black.png">
+</div>
+
+<div id="RY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ry_black.png">
+</div>
+
+<div id="UM_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/um_black.png">
+</div>
+
+
+<div id="FU_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div>
+
+<div id="KY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_white.png">
+</div>
+
+<div id="KE_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_white.png">
+</div>
+
+<div id="GI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_white.png">
+</div>
+
+<div id="KI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_white.png">
+</div>
+
+<div id="HI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_white.png">
+</div>
+
+<div id="KA_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_white.png">
+</div>
+
+<div id="OU_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_white.png">
+</div>
+
+<div id="TO_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/to_white.png">
+</div>
+
+<div id="NY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ny_white.png">
+</div>
+
+<div id="NK_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/nk_white.png">
+</div>
+
+<div id="NG_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ng_white.png">
+</div>
+
+<div id="RY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ry_white.png">
+</div>
+
+<div id="UM_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/um_white.png">
+</div>
+
+
+
+<div id="FU_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/fu_black_capture.png">
+</div>
+
+<div id="KY_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ky_black_capture.png">
+</div>
+
+<div id="KE_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ke_black_capture.png">
+</div>
+
+<div id="GI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/gi_black_capture.png">
+</div>
+
+<div id="KI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ki_black_capture.png">
+</div>
+
+<div id="HI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/hi_black_capture.png">
+</div>
+
+<div id="KA_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ka_black_capture.png">
+</div>
+
+
+<div id="FU_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/fu_white_capture.png">
+</div>
+
+<div id="KY_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ky_white_capture.png">
+</div>
+
+<div id="KE_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ke_white_capture.png">
+</div>
+
+<div id="GI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/gi_white_capture.png">
+</div>
+
+<div id="KI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ki_white_capture.png">
+</div>
+
+<div id="HI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/hi_white_capture.png">
+</div>
+
+<div id="KA_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ka_white_capture.png">
+</div>
+
+
+<div id="TO_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/to_window.png">
+</div>
+
+<div id="NK_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/nk_window.png">
+</div>
+
+<div id="NY_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ny_window.png">
+</div>
+
+<div id="NG_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ng_window.png">
+</div>
+
+<div id="RY_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/ry_window.png">
+</div>
+
+<div id="UM_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./JavaScript将棋盤_files/um_window.png">
+</div>
+
+
+
+
+<div id="selected_white" style="position:absolute;width:43px;height:43px">
+<img style="display:block;position:relative;width:43px;height:43px" src="./JavaScript将棋盤_files/selected_white.png">
+</div>
+
+<div id="pw_img" style="position:absolute;width:92px;height:46px">
+<img style="display:block;position:relative;width:92px;height:46px" src="./JavaScript将棋盤_files/promotion_window.png">
+</div>
+
+</div>
+
+
+
+<div style="position:relative;top:10px;left:10px">
+
+<div id="promotion_window"></div>
+
+<div style="position:absolute;width:153px;height:230px;top:255px;left:630px">
+<img src="./JavaScript将棋盤_files/komadai.png">
+<div id="capture_black"></div>
+</div>
+
+<div style="position:absolute;width:450px;height:450px;left:170px" id="board">
+<img src="./JavaScript将棋盤_files/ban.png">
+<div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 20px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 66px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 112px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_white.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 158px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 204px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 250px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 296px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/fu_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ka_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/hi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 342px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/cell_board.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 20px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 66px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 112px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 158px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 204px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ou_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 250px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ki_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 296px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/gi_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 342px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ke_black.png">
+</div><div style="position: absolute; width: 41px; height: 41px; left: 388px; top: 388px;">
+<img style="display:block;position:relative;width:41px;height:41px" src="./JavaScript将棋盤_files/ky_black.png">
+</div></div>
+
+<div style="position:absolute;width:153px;height:230px">
+<img src="./JavaScript将棋盤_files/komadai.png">
+<div id="capture_white">
+</div>
+</div>
+
+<div style="position:absolute;top:500px" id="TebanMessage">後手番です<br></div>
+</div>
+
+
+
+
+
+
+
+</body></html>
