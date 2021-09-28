@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class BattleController {
+public class PlayingSceneController {
 
 	//ログイン画面遷移
-	@RequestMapping("/Battle")
+	@RequestMapping("/playingScene")
 	String create() {
 	    return "board";
 	}
