@@ -1104,6 +1104,3 @@ window.onload = function(){
 	//将棋盤全体（持ち駒もふくむ）を表示する
 	showBoard(p);
 };
-
-	
-	
