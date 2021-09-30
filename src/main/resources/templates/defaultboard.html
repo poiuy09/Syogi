@@ -1,0 +1,263 @@
+
+<html>
+<head>
+<title>JavaScript将棋盤</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="./js/defaultshogi.js"></script>
+
+
+</head>
+
+<body>
+
+<div style="display:none">
+
+
+<div id="cell_board" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_board.png">
+</div>
+
+<div id="cell_capture" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/cell_capture.png">
+</div>
+
+<div id="FU_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_black.png">
+</div>
+
+<div id="KY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_black.png">
+</div>
+
+<div id="KE_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_black.png">
+</div>
+
+<div id="GI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_black.png">
+</div>
+
+<div id="KI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_black.png">
+</div>
+
+<div id="HI_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_black.png">
+</div>
+
+<div id="KA_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_black.png">
+</div>
+
+<div id="OU_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_black.png">
+</div>
+
+<div id="TO_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/to_black.png">
+</div>
+
+<div id="NY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ny_black.png">
+</div>
+
+<div id="NK_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/nk_black.png">
+</div>
+
+<div id="NG_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ng_black.png">
+</div>
+
+<div id="RY_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ry_black.png">
+</div>
+
+<div id="UM_black" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/um_black.png">
+</div>
+
+
+<div id="FU_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/fu_white.png">
+</div>
+
+<div id="KY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ky_white.png">
+</div>
+
+<div id="KE_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ke_white.png">
+</div>
+
+<div id="GI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/gi_white.png">
+</div>
+
+<div id="KI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ki_white.png">
+</div>
+
+<div id="HI_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/hi_white.png">
+</div>
+
+<div id="KA_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ka_white.png">
+</div>
+
+<div id="OU_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ou_white.png">
+</div>
+
+<div id="TO_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/to_white.png">
+</div>
+
+<div id="NY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ny_white.png">
+</div>
+
+<div id="NK_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/nk_white.png">
+</div>
+
+<div id="NG_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ng_white.png">
+</div>
+
+<div id="RY_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/ry_white.png">
+</div>
+
+<div id="UM_white" style="position:absolute;width:41px;height:41px">
+<img style="display:block;position:relative;width:41px;height:41px" src="./img/um_white.png">
+</div>
+
+
+
+<div id="FU_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/fu_black_capture.png">
+</div>
+
+<div id="KY_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ky_black_capture.png">
+</div>
+
+<div id="KE_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ke_black_capture.png">
+</div>
+
+<div id="GI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/gi_black_capture.png">
+</div>
+
+<div id="KI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ki_black_capture.png">
+</div>
+
+<div id="HI_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/hi_black_capture.png">
+</div>
+
+<div id="KA_black_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ka_black_capture.png">
+</div>
+
+
+<div id="FU_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/fu_white_capture.png">
+</div>
+
+<div id="KY_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ky_white_capture.png">
+</div>
+
+<div id="KE_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ke_white_capture.png">
+</div>
+
+<div id="GI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/gi_white_capture.png">
+</div>
+
+<div id="KI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ki_white_capture.png">
+</div>
+
+<div id="HI_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/hi_white_capture.png">
+</div>
+
+<div id="KA_white_capture" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ka_white_capture.png">
+</div>
+
+
+<div id="TO_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/to_window.png">
+</div>
+
+<div id="NK_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/nk_window.png">
+</div>
+
+<div id="NY_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ny_window.png">
+</div>
+
+<div id="NG_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ng_window.png">
+</div>
+
+<div id="RY_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/ry_window.png">
+</div>
+
+<div id="UM_window" style="position:absolute;width:40px;height:40px">
+<img style="display:block;position:relative;width:40px;height:40px" src="./img/um_window.png">
+</div>
+
+
+<div id="selected_black" style="position:absolute;width:45px;height:45px">
+<img style="display:block;position:relative;width:45px;height:45px" src=./img/selected_black.png>
+</div>
+
+<div id="selected_white" style="position:absolute;width:43px;height:43px">
+<img style="display:block;position:relative;width:43px;height:43px" src="./img/selected_white.png">
+</div>
+
+<div id="pw_img" style="position:absolute;width:92px;height:46px">
+<img style="display:block;position:relative;width:92px;height:46px" src="./img/promotion_window.png">
+</div>
+
+</div>
+
+
+
+<div style="position:relative;top:10px;left:10px">
+
+<div id="promotion_window"></div>
+
+<div style="position:absolute;width:153px;height:230px;top:255px;left:630px">
+<img src="./img/komadai.png">
+<div id="capture_black"></div>
+</div>
+
+<div style="position:absolute;width:450px;height:450px;left:170px" id="board">
+<img src=./img/ban.png>
+</div>
+
+<div style="position:absolute;width:153px;height:230px">
+<img src="./img/komadai.png">
+<div id="capture_white">
+</div>
+</div>
+
+<div style = "position:absolute;top:500px"id="TebanMessage"></div>
+</div>
+
+
+</body>
+</html>
