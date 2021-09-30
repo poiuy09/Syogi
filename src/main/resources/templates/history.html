@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>対戦履歴</title>
+<link th:href="@{/css/indexstyle.css}" rel="stylesheet" />
+</head>
+<body>
+現在のポイント:[[${userpoint.point}]]<br>
+ランク:[[${userpoint.grade}]]<br>
+勝ち[[${userpoint.win}]]<br>
+負け[[${userpoint.lose}]]<br>
+<a href="/home">戻る</a></body>
+</body>
+</html>

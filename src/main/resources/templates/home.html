@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ホーム</title>
+<link th:href="@{/css/indexstyle.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>ドラゴン桜</h1>
+<main id="contents">
+ウエルカム
+[[${user.nickname}]]
+
+<h2>
+<p><a href="/roby">ロビー</a></p>
+<p><a href="/revise">会員情報変更</a></p>
+<p><a href="/history">対戦履歴</a></p>
+<p><a href="/logout">ログアウト</a></p>
+</h2>
+</main>
+</body>
+</html>
