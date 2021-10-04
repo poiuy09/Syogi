@@ -1,5 +1,6 @@
 ﻿//駒の種類を数字で表す  C++のマクロっぽい表記（大文字）にしてみた
-var OUT_OF_BOARD = 128;  
+//コメントをどんどん追加していこう。それで理解していく
+var OUT_OF_BOARD = 128;
 var EMPTY = 0;
 var FU = 1;
 var KY = 2;
@@ -322,14 +323,14 @@ var MustPromote = function(piece,turn,rank,file){
 		if(turn && rank <= 1)return 1;
 		if(!turn && rank >= 9)return 1;
 	}
-		
+
 	if((piece & ~ENEMY) == KE){
 		if(turn && rank <= 2)return 1;
 		if(!turn && rank >= 8)return 1;
 	}
-	
+
 	return 0;
-	
+
 }
 
 //選択した駒が、選択したマスに動けるかどうかしらべる関数
@@ -337,7 +338,7 @@ var CanMove = function(pos){
 	for(var i = 0; i < 12; i++){
 		if(CanGo[i][selectedKoma]){
 			if(pos.rank == FromClickDan + Direction[i].rank && pos.file == FromClickSuji + Direction[i].file)return 1;
-			
+
 			if(CanJump[i][selectedKoma]){
 				for(var j = 1; j <= 8; j++){
 					var moved = new PiecePos(0,0);
@@ -346,7 +347,7 @@ var CanMove = function(pos){
 					if(board[moved.rank][moved.file] != EMPTY)break;
 				}
 			}
-			
+
 		}
 	}
 	return 0;
@@ -360,7 +361,7 @@ var IsControl = function(pos,sengo){
 		if(piece != EMPTY && Self(piece,sengo)){
 			var start = new PiecePos(0,0);
 			start.rank = i; start.file = j;
-			
+
 			for(var k = 0; k < 12; k++){
 				var moved = new PiecePos(0,0);
 				if(CanGo[k][piece]){
@@ -368,7 +369,7 @@ var IsControl = function(pos,sengo){
 					moved.file = start.file + Direction[k].file;
 					if(Self(board[moved.rank][moved.file],sengo) || board[moved.rank][moved.file] == OUT_OF_BOARD)continue;
 					if(moved.rank == pos.rank && moved.file == pos.file)return 1;
-					
+
 					if(CanJump[k][piece]){
 						for(var l = 0; l < 8; l++){
 							moved.rank  += Direction[k].rank;
@@ -376,15 +377,15 @@ var IsControl = function(pos,sengo){
 							if(Self(board[moved.rank][moved.file],sengo) || board[moved.rank][moved.file] == OUT_OF_BOARD)break;
 							if(moved.rank == pos.rank && moved.file == pos.file)return 1;
 							if(board[moved.rank][moved.file] != EMPTY)break;
-						
+
 						}
-					
+
 					}
 				}
 			}
 		}
-	
-	
+
+
 	}
 	}
 	return 0;
@@ -415,51 +416,51 @@ function Move(from,to,piece,promotion,capture){
 
 function Position(){
 	this.Board = [];
-	
+
 	this.Capture = [];
 	this.Capture[0] = [];
 	this.Capture[1] = [];
-	
+
 	this.FuFlg = [];
 	this.FuFlg[0] = [];
 	this.FuFlg[1] = [];
-	
+
 	for(var i = 0; i <= 10; i++){
 		this.Board[i] = [];
 		for(var j = 0; j <= 10; j++){
 			this.Board[i][j] = OUT_OF_BOARD;
 		}
 	}
-		
+
 	for(var i = 1; i <= 9; i++){
 	for(var j = 1; j <= 9; j++){
-		this.Board[i][j] = EMPTY;	
+		this.Board[i][j] = EMPTY;
 	}
 	}
 
 	for(var i = 0; i <= 1; i++){
 	for(var j = 0; j <= HI; j++){
 		this.Capture[i][j] = EMPTY;
-	}	
 	}
-	
+	}
+
 	for(var i = 1; i <= 9; i++){
 		this.FuFlg[0][i] = false;
 		this.FuFlg[1][i] = false;
-	}	
-	
+	}
+
 	this.turn = true;
 	this.blackKingPos = new PiecePos(0,0);
 	this.whiteKingPos = new PiecePos(0,0);
-	
+
 	}
-	
+
 Position.prototype = {
-	
+
 	//SearchKing: function(){},
 	//EvalPiece: function(){},
-	
-	
+
+
 	Set_default: function(){
 		this.Board[1][1] = EKY;
 		this.Board[1][2] = EKE;
@@ -501,24 +502,24 @@ Position.prototype = {
 		this.Board[7][7] = FU;
 		this.Board[7][8] = FU;
 		this.Board[7][9] = FU;
-		
+
 		for(var piece = FU; piece <= HI; piece++){
 			this.Capture[0][piece] = 0;
 			this.Capture[1][piece] = 0;
 		}
-		
+
 		for(var i = 1; i <= 9; i++){
 			this.FuFlg[0][i] = true;
 			this.FuFlg[1][i] = true;
 		}
-		
+
 		this.blackKingPos.rank = 9;
 		this.blackKingPos.file = 5;
 		this.whiteKingPos.rank = 1;
 		this.whiteKingPos.file = 5;
-		
+
 	},
-	
+
 	do_move: function(move){
 		if(move.from.file == 0 && move.from.rank == 0){
 			this.Board[move.to.rank][move.to.file] = move.piece;
@@ -526,12 +527,12 @@ Position.prototype = {
 			if((move.piece & ~ENEMY) == FU)this.FuFlg[+this.turn][move.to.file] = true;
 			this.turn = !this.turn;
 		}
-		
+
 		else{
 			var temp = this.Board[move.to.rank][move.to.file];
 			this.Board[move.to.rank][move.to.file] = this.Board[move.from.rank][move.from.file];
 			this.Board[move.from.rank][move.from.file] = EMPTY;
-			
+
 			if((move.piece & ~ENEMY) == OU){
 				if(move.piece == OU){
 					this.blackKingPos.rank = move.to.rank;
@@ -542,20 +543,20 @@ Position.prototype = {
 					this.whiteKingPos.file = move.to.file;
 				}
 			}
-			
+
 			if(move.promotion)this.Board[move.to.rank][move.to.file] += PROMOTED;
-		
+
 			if(move.capture != EMPTY && Koma(move.capture) && move.capture == temp){
 				this.Capture[+this.turn][move.capture & ~ENEMY & ~PROMOTED]++;
 				if((move.capture & ~ENEMY) == FU)this.FuFlg[+!this.turn][move.to.file] = false;
 			}
-			
+
 			if((move.piece & ~ENEMY) == FU && move.promotion)(this.turn) ? this.FuFlg[1][move.to.file] = false : this.FuFlg[0][move.to.file] = false;
-			
+
 			this.turn = !this.turn;
 		}
 	},
-	
+
 	undo_move: function(move){
 		if(move.from.file == 0 && move.from.rank == 0){
 			this.Board[move.to.rank][move.to.file] = EMPTY;
@@ -563,11 +564,11 @@ Position.prototype = {
 			if((move.piece & ~ENEMY) == FU)this.FuFlg[+!this.turn][move.to.file] = false;
 			this.turn = !this.turn;
 		}
-		
+
 		else{
 			this.Board[move.from.rank][move.from.file] = this.Board[move.to.rank][move.to.file];
 			this.Board[move.to.rank][move.to.file] = EMPTY;
-			
+
 			if((move.piece & ~ENEMY) == OU){
 				if(move.piece == OU ){
 					this.blackKingPos.rank  = move.from.rank;
@@ -578,22 +579,22 @@ Position.prototype = {
 					this.whiteKingPos.file  = move.from.file;
 				}
 			}
-			
+
 			if(move.promotion)this.Board[move.from.rank][move.from.file] -= PROMOTED;
-			
+
 			if(move.capture != EMPTY && Koma(move.capture)){
 				this.Board[move.to.rank][move.to.file] = move.capture;
 				this.Capture[+!this.turn][move.capture & ~ENEMY & ~PROMOTED]--;
 				if((move.capture & ~ENEMY) == FU)this.FuFlg[+this.turn][move.to.file] = true;
 			}
-			
+
 			if((move.piece & ~ENEMY) == FU && move.promotion)(!this.turn) ? this.FuFlg[1][move.to.file] = true : this.FuFlg[0][move.to.file] = true;
-			
+
 			this.turn = !this.turn;
 		}
-	
+
 	},
-	
+
 	IsControl: function(pos,turn){
 		for(var i = 1; i <= 9; i++){
 		for(var j = 1; j <= 9; j++){
@@ -601,7 +602,7 @@ Position.prototype = {
 			if(piece != EMPTY && Self(piece,turn)){
 				var start = new PiecePos(0,0);
 				start.rank = i; start.file = j;
-				
+
 				for(var k = 0; k < 12; k++){
 					var moved = new PiecePos(0,0);
 					if(CanGo[k][piece]){
@@ -610,7 +611,7 @@ Position.prototype = {
 						if(Self(this.Board[moved.rank][moved.file],turn) || this.Board[moved.rank][moved.file] == OUT_OF_BOARD)continue;
 						if(moved.rank == pos.rank && moved.file == pos.file)return 1;
 						if(Enemy(this.Board[moved.rank][moved.file],turn))continue;
-						
+
 						if(CanJump[k][piece]){
 							for(var l = 0; l < 7; l++){
 								moved.rank  += Direction[k].rank;
@@ -627,15 +628,15 @@ Position.prototype = {
 		}
 		return 0;
 
-	
+
 	},
-	
+
 	//ある駒が、あるマスに動けるかどうかしらべる関数
 	CanMove: function(pos,piece){
 		for(var i = 0; i < 12; i++){
 			if(CanGo[i][piece]){
 				if(pos.rank == clickRank + Direction[i].rank && pos.file == clickFile + Direction[i].file)return 1;
-				
+
 				if(CanJump[i][piece]){
 					for(var j = 1; j <= 8; j++){
 						var moved = new PiecePos(0,0);
@@ -644,7 +645,7 @@ Position.prototype = {
 						if(this.Board[moved.rank][moved.file] != EMPTY)break;
 					}
 				}
-				
+
 			}
 		}
 		return 0;
@@ -654,34 +655,34 @@ Position.prototype = {
 		if((piece & ~ENEMY) == KY || (piece & ~ENEMY) == FU){
 			if(this.turn && pos.rank <= 1)return 0;
 			if(!this.turn && pos.rank >= 9)return 0;
-			
+
 			if((piece & ~ENEMY) == FU){
 				if(this.turn && this.FuFlg[+this.turn][pos.file])return 0;
 				if(!this.turn && this.FuFlg[+this.turn][pos.file])return 0;
 			}
 		}
-		
+
 		if((piece & ~ENEMY) == KE){
 			if(this.turn && pos.rank <= 2)return 0;
 			if(!this.turn && pos.rank >= 8)return 0;
 		}
-		
+
 		return 1;
-	
+
 	}
 }
-	
+
 
 //将棋盤全体（持ち駒もふくむ）を表示する
 var showBoard = function(p){
 
 	var fragment = document.createDocumentFragment();
-	
+
 	for(var rank = 1; rank <= 9; rank++){
 	for(var file = 1; file <= 9; file++){
 		var c = piece_board[p.Board[rank][file]].cloneNode(true); //駒画像の要素を複製
 		c.style.left = 20 + ((file - 1) * 46) + "px";         //位置を調節
-		c.style.top = 20 + ((rank - 1) * 46) + "px"; 
+		c.style.top = 20 + ((rank - 1) * 46) + "px";
 		c.removeAttribute("id");
 		fragment.appendChild(c);
 
@@ -705,11 +706,11 @@ var showBoard = function(p){
 		}
 	}
 	}
-	
+
 	b.appendChild(fragment);                                //"board"に駒画像のノードを追加
-	
+
 	//持ち駒の表示
-	
+
 	//先手の持ち駒
 	for(var piece = FU; piece <= HI; piece++){
 		(function(){
@@ -719,7 +720,7 @@ var showBoard = function(p){
 		}
 		})();
 	}
-	
+
 	//後手の持ち駒
 	for(var piece = FU; piece <= HI; piece++){
 		(function(){
@@ -729,22 +730,22 @@ var showBoard = function(p){
 		}
 		}());
 	}
-	
+
 	//手番の表示
 	var TebanMessage = document.getElementById("TebanMessage");
-	
+
 	(p.turn) ? TebanMessage.innerHTML = "先手番です<br>" : TebanMessage.innerHTML = "後手番です<br>";
 };
 
 
 //手番の駒をクリックしたときにつかう関数
-var SelectSelfKoma = function(p,pos){  
-	
+var SelectSelfKoma = function(p,pos){
+
 	if(p.turn){
 		slb.style.left =  19 + ((pos.file - 1) * 46) + "px";
 		slb.style.top = 19 + ((pos.rank - 1) * 46) + "px";
 		slb.onclick = function(){
-			selectedFlgB = false; 
+			selectedFlgB = false;
 			slb.parentElement.removeChild(slb);
 			}
 		b.appendChild(slb);
@@ -754,36 +755,36 @@ var SelectSelfKoma = function(p,pos){
 		slw.style.left = 20 + ((pos.file - 1) * 46) + "px";
 		slw.style.top = 20 + ((pos.rank - 1) * 46)+ "px";
 		slw.onclick = function(){
-			selectedFlgB = false; 
+			selectedFlgB = false;
 			slw.parentElement.removeChild(slw);
 		}
 		b.appendChild(slw);
 	}
-	selectedFlgB = true; 
-	selectedFlgC = false; 
+	selectedFlgB = true;
+	selectedFlgC = false;
 	selectedPiece = p.Board[pos.rank][pos.file];
-	clickRank = pos.rank; clickFile = pos.file; 
+	clickRank = pos.rank; clickFile = pos.file;
 };
 
 
 //敵の駒をクリックしたときにつかう関数
 var SelectEnemyKoma = function(p,pos){
 	var cb = document.getElementById("capture_black"), cw = document.getElementById("capture_white");
-	
+
 	//盤上の駒を選択している状態なら
 	if(selectedFlgB && p.CanMove(pos,selectedPiece)){
 		var sek_move = new Move();
-		
+
 		var sek_from = new PiecePos(clickRank,clickFile);
 		sek_move.from    = sek_from;
 		sek_move.to      = pos;
 		sek_move.piece   = selectedPiece;
 		sek_move.capture = p.Board[pos.rank][pos.file];
-		
-		selectedFlgB = false; 
-		selectedFlgC = false; 
+
+		selectedFlgB = false;
+		selectedFlgC = false;
 		(p.turn) ? b.removeChild(slb) : b.removeChild(slw);
-		
+
 		if((CanPromote(selectedPiece,p.turn,pos.rank,pos.file) || CanPromote(selectedPiece,p.turn,clickRank,clickFile))){
 			if(MustPromote(selectedPiece,p.turn,pos.rank,pos.file)){
 				sek_move.promotion = true;
@@ -794,7 +795,7 @@ var SelectEnemyKoma = function(p,pos){
 			}
 			else{ShowPromotionWindow(p,sek_move,pos.rank,pos.file);}
 		}
-		
+
 		else{
 			selectedPiece = EMPTY;
 			p.do_move(sek_move);
@@ -812,24 +813,24 @@ selectedFlgC = false;
 
 
 //空のマスをクリックしたときにつかう関数
-var SelectEmptyCell = function(p,pos){ 
+var SelectEmptyCell = function(p,pos){
 	var cb = document.getElementById("capture_black"), cw = document.getElementById("capture_white");
-	
+
 	var sec_move = new Move();
-	
+
 		//もし駒が選択された状態なら
 	if(selectedFlgB && p.CanMove(pos,selectedPiece)){
-		
+
 		var sec_from = new PiecePos(clickRank,clickFile);
 		sec_move.from    = sec_from;
 		sec_move.to      = pos;
 		sec_move.piece   = selectedPiece;
 		sec_move.capture = EMPTY;
-		
-		selectedFlgB = false;   
+
+		selectedFlgB = false;
 		selectedFlgC = false;
 		(p.turn) ? b.removeChild(slb) : b.removeChild(slw);
-		
+
 		if(CanPromote(selectedPiece,p.turn,pos.rank,pos.file) || CanPromote(selectedPiece,p.turn,clickRank,clickFile)){
 			if(MustPromote(selectedPiece,p.turn,pos.rank,pos.file)){
 				sec_move.promotion = true;
@@ -840,7 +841,7 @@ var SelectEmptyCell = function(p,pos){
 			}
 			else{ShowPromotionWindow(p,sec_move,pos.rank,pos.file);}
 		}
-		
+
 		else{
 			selectedPiece = EMPTY;
 			p.do_move(sec_move);
@@ -848,16 +849,16 @@ var SelectEmptyCell = function(p,pos){
 			(check) ? p.undo_move(sec_move) : showBoard(p);
 		}
 	}
-	
+
 	if(selectedFlgC && p.CanDrop(pos,selectedPiece)){
 		var sec_from = new PiecePos(0,0);
 		sec_move.from    = sec_from;
 		sec_move.to      = pos;
 		sec_move.piece   = selectedPiece;
 		sec_move.capture = EMPTY;
-		
+
 		(p.turn) ? cb.removeChild(slb) : cw.removeChild(slw);
-		
+
 		if(p.turn){
 			while(cb.firstChild){
 				cb.removeChild(cb.firstChild);
@@ -870,29 +871,29 @@ var SelectEmptyCell = function(p,pos){
 		}
 		selectedPiece = EMPTY;
 
-		selectedFlgB = false;   
-		selectedFlgC = false; 
-		
+		selectedFlgB = false;
+		selectedFlgC = false;
+
 		p.do_move(sec_move);
 		var check = (p.turn) ? p.IsControl(p.whiteKingPos,true) : p.IsControl(p.blackKingPos,false);
 		(check) ? p.undo_move(sec_move) : showBoard(p);
-		
-		showBoard(p);     
+
+		showBoard(p);
 	}
 	}
 
-	
+
 //先手の持ち駒を表示する関数
 var ShowBlackCapture = function(p,piece){
 	var cb = document.getElementById("capture_black"), cw = document.getElementById("capture_white");
 	var fragmentB = document.createDocumentFragment(), fragmentC = document.createDocumentFragment();
 
 	for(var i = 1; i <= p.Capture[1][piece]; i++){
-		
+
 		var pcb = piece_black_capture[piece].cloneNode(true);
 		pcb.style.left = !(piece%2)*72+10+(p.Capture[1][piece]-i)*10 + "px";
 		pcb.style.top = (7-piece-(7-piece)%2)/2*46+10 + "px";
-	
+
 		if(i == p.Capture[1][piece]){
 			pcb.onclick = function(){
 			if(p.turn && !PromotionWindowFlg){
@@ -901,16 +902,16 @@ var ShowBlackCapture = function(p,piece){
 				slb.onclick = function(){
 					if(p.turn){
 						slb.parentElement.removeChild(slb);
-						selectedFlgC = false; 
+						selectedFlgC = false;
 					}
 				}
-				
-				selectedFlgC = true; 
+
+				selectedFlgC = true;
 				selectedPiece = piece;
 				cb.appendChild(slb);
 			}
 			if(p.turn){
-				selectedFlgB = false; 
+				selectedFlgB = false;
 			}
 			}
 		}
@@ -929,7 +930,7 @@ var ShowWhiteCapture = function(p,piece){
 		var pcw = piece_white_capture[piece].cloneNode(true);
 		pcw.style.left = (piece%2)*72+30-(p.Capture[0][piece]-i)*10+5 + "px";
 		pcw.style.top = (piece-(piece)%2)/2*46+10 + "px";
-		
+
 		if(i == p.Capture[0][piece]){
 			pcw.onclick = function(){
 				if(!p.turn  && !PromotionWindowFlg){
@@ -937,15 +938,15 @@ var ShowWhiteCapture = function(p,piece){
 					slw.style.top = (piece-(piece)%2)/2*46+8 + "px";
 					slw.onclick = function(){
 							slw.parentElement.removeChild(slw);
-							selectedFlgC = false; 
+							selectedFlgC = false;
 					}
-					
-					selectedFlgC = true; 
+
+					selectedFlgC = true;
 					selectedPiece = piece | ENEMY;
 					cw.appendChild(slw);
 				}
 			if(!p.turn){
-				selectedFlgB = false; 
+				selectedFlgB = false;
 			}
 			}
 		}
@@ -959,13 +960,13 @@ var ShowWhiteCapture = function(p,piece){
 var ShowPromotionWindow = function(p,move,rank,file){
 	var promotion_window = document.getElementById("promotion_window");
 	var fragment = document.createDocumentFragment();
-	
+
 	var WindowClickFlg;
-	
+
 	var Show = function (){
 		pw_img.style.left = (file - 1) * 46 - 10 + "px";
 		pw_img.style.top = 8 + ((rank - 1) * 46) + "px";
-		
+
 		var ppw = piece_promotion_window[selectedPiece & ~ENEMY];
 		ppw.style.left = (file - 1) * 46 +38 + "px";
 		ppw.style.top = 8 + ((rank - 1) * 46) + "px";
@@ -987,13 +988,13 @@ var ShowPromotionWindow = function(p,move,rank,file){
 			move.promotion = false;
 			PromotionWindowFlg = false;
 		}
-		
+
 		fragment.appendChild(pw_img);
 		fragment.appendChild(ppw);
 		fragment.appendChild(pc);
 
 	};
-	
+
 	PromotionWindowFlg = true;
 	Show();
 	b.appendChild(fragment);
@@ -1007,22 +1008,22 @@ var ShowPromotionWindow = function(p,move,rank,file){
 		var check = (p.turn) ? p.IsControl(p.whiteKingPos,true) : p.IsControl(p.blackKingPos,false);
 		(check) ? p.undo_move(move) : showBoard(p);
 	}
-	},100);	
+	},100);
 }
 
 //ページ読み込み時に以下の処理を実行
-window.onload = function(){    
-	
+window.onload = function(){
+
 	b = document.getElementById("board");
-	
+
 	//選択フラグを初期化
 	selectedFlgB = false;
 	selectedFlgC = false;
 	PromotionWindowFlg = false;
-	
+
 	//選択した状態の画像のIDを取得
-	slb = document.getElementById("selected_black"); slw = document.getElementById("selected_white");  
-	
+	slb = document.getElementById("selected_black"); slw = document.getElementById("selected_white");
+
 	//pieceにコマ画像のIDを入れておく
 	piece_board = [
 	document.getElementById("cell_board"),
@@ -1059,7 +1060,7 @@ window.onload = function(){
 	document.getElementById("RY_white"),
 	document.getElementById("cell_board"),
 	];
-	
+
 
 	piece_black_capture = [
 	document.getElementById("cell_capture"),
@@ -1071,7 +1072,7 @@ window.onload = function(){
 	document.getElementById("KA_black_capture"),
 	document.getElementById("HI_black_capture")
 	];
-	
+
 	piece_white_capture = [
 	document.getElementById("cell_capture"),
 	document.getElementById("FU_white_capture"),
@@ -1082,7 +1083,7 @@ window.onload = function(){
 	document.getElementById("KA_white_capture"),
 	document.getElementById("HI_white_capture")
 	];
-	
+
 	piece_promotion_window = [
 	document.getElementById("cell_capture"),
 	document.getElementById("TO_window"),
@@ -1093,13 +1094,13 @@ window.onload = function(){
 	document.getElementById("UM_window"),
 	document.getElementById("RY_window"),
 	];
-	
+
 	pw_img = document.getElementById("pw_img");
-	
+
 	var p = new Position();
-	
+
 	p.Set_default();
-	
+
 
 	//将棋盤全体（持ち駒もふくむ）を表示する
 	showBoard(p);
