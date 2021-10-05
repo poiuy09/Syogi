@@ -1,38 +1,43 @@
 ﻿//駒の種類を数字で表す  C++のマクロっぽい表記（大文字）にしてみた
 //コメントをどんどん追加していこう。それで理解していく
-var OUT_OF_BOARD = 128;
-var EMPTY = 0;
-var FU = 1;
-var KY = 2;
-var KE = 3;
-var GI = 4;
-var KI = 5;
-var KA = 6;
-var HI = 7;
-var OU = 8;
-var PROMOTED = 8;
-var TO = PROMOTED + FU;
-var NY = PROMOTED + KY;
-var NK = PROMOTED + KE;
-var NG = PROMOTED + GI;
-var UM = PROMOTED + KA;
-var RY = PROMOTED + HI;
-var ENEMY = 16;
-var EFU = ENEMY + FU;
-var EKY = ENEMY + KY;
-var EKE = ENEMY + KE;
-var EGI = ENEMY + GI;
-var EKI = ENEMY + KI;
-var EKA = ENEMY + KA;
-var EHI = ENEMY + HI;
-var EOU = ENEMY + OU;
-var ETO = ENEMY + TO;
-var ENY = ENEMY + NY;
-var ENK = ENEMY + NK;
-var ENG = ENEMY + NG;
-var EUM = ENEMY + UM;
-var ERY = ENEMY + RY;
+//盤上(と駒台)の状態を表している
+//将棋用語 駒piece 段 rank 筋 file 手 move 手番 the move/ turn /color
+//駒の位置 position 局面 position 持ち駒 captured piece / hand 持ち駒を打つ drop
+//(一つの)駒の位置piecePos
+var OUT_OF_BOARD = 128;  //盤上の外(=駒台)
+var EMPTY = 0;  //盤上空
+var FU = 1;  //歩
+var KY = 2;  //香車
+var KE = 3;  //桂馬
+var GI = 4;  //銀
+var KI = 5;  //金
+var KA = 6;  //角
+var HI = 7;  //飛車
+var OU = 8;  //王
+var PROMOTED = 8; //成りの駒に足している
+var TO = PROMOTED + FU;  //と
+var NY = PROMOTED + KY;  //成香
+var NK = PROMOTED + KE;  //成桂
+var NG = PROMOTED + GI;  //成銀
+var UM = PROMOTED + KA;  //馬
+var RY = PROMOTED + HI;  //龍
+var ENEMY = 16;  //敵の駒
+var EFU = ENEMY + FU;  //敵の歩
+var EKY = ENEMY + KY;  //敵の香車
+var EKE = ENEMY + KE;  //敵の桂馬
+var EGI = ENEMY + GI;  //敵の銀
+var EKI = ENEMY + KI;  //敵の金
+var EKA = ENEMY + KA;  //敵の角
+var EHI = ENEMY + HI;  //敵の飛車
+var EOU = ENEMY + OU;  //敵の王
+var ETO = ENEMY + TO;  //敵のと
+var ENY = ENEMY + NY;  //敵の成香
+var ENK = ENEMY + NK;  //敵の成桂
+var ENG = ENEMY + NG;  //敵の成銀
+var EUM = ENEMY + UM;  //敵の馬
+var ERY = ENEMY + RY;  //敵の龍
 
+//盤上と駒台での見た目が違うからあるだけ。駒そのものを示している変数から画像ファイルを示すためのもの
 var piece_board; //盤上の駒の画像のIDを入れておく変数
 var piece_black_capture; //先手の駒台の駒の画像のIDを入れておく変数
 var piece_white_capture; //後手の駒台の駒の画像のIDを入れておく変数
@@ -49,13 +54,16 @@ var ToClickDan,ToClickSuji;  //用意したけどけっきょく使わなかっ�
 var selectedPiece; //選択された駒の種類
 var teban;  //手番 trueが先手番  falseが後手番
 
+//要素数気になる board,capture
 var board = []; //将棋盤の配列
+
 var capture = []; //持ち駒の配列
 
 var slb,slw;
 
 var b;
 
+//方向
 var Direction = [];
 
 Direction[0]  = new PiecePos(0,1);   //←
@@ -71,6 +79,7 @@ Direction[9]  = new PiecePos(-2,-1); //先手の桂馬飛び
 Direction[10] = new PiecePos(2,1);   //後手の桂馬飛び
 Direction[11] = new PiecePos(2,-1);  //後手の桂馬飛び
 
+//各方向に進めるかどうか
 var CanGo = [
 //←
 [
@@ -170,6 +179,7 @@ var CanGo = [
 
 ];
 
+//各方向にジャンプできるかどうか(実質角と飛車だけ)
 var CanJump = [
 //←
 [
@@ -298,7 +308,8 @@ var Koma = function(piece){
 	return ((FU <= piece && piece <= RY) || (EFU <= piece && piece <= ERY));
 }
 
-//先手の陣地かどうか
+//先手の陣地かどうか 位=rank将棋の位取り,みたいな高さのこと
+//横は筋,英語にしづらいからfileなのかな
 var BlackArea = function(rank,file){
 	return (7 <= rank && rank <= 9 && 1 <= file && file <= 9);
 }
@@ -413,17 +424,17 @@ function Move(from,to,piece,promotion,capture){
 	this.capture = capture;
 }
 
-
+//関数のPosition
 function Position(){
-	this.Board = [];
+	this.Board = [];  //将棋盤
 
-	this.Capture = [];
-	this.Capture[0] = [];
-	this.Capture[1] = [];
+	this.Capture = [];  //駒台
+	this.Capture[0] = [];  //駒台(先手と予想)
+	this.Capture[1] = [];  //駒台(後手と予想)
 
-	this.FuFlg = [];
-	this.FuFlg[0] = [];
-	this.FuFlg[1] = [];
+	this.FuFlg = [];  //選択か成か
+	this.FuFlg[0] = [];  //
+	this.FuFlg[1] = [];  //
 
 	for(var i = 0; i <= 10; i++){
 		this.Board[i] = [];
@@ -455,6 +466,7 @@ function Position(){
 
 	}
 
+//Positionのプロトタイプ
 Position.prototype = {
 
 	//SearchKing: function(){},
@@ -676,17 +688,17 @@ Position.prototype = {
 //将棋盤全体（持ち駒もふくむ）を表示する
 var showBoard = function(p){
 
-	var fragment = document.createDocumentFragment();
+	var fragment = document.createDocumentFragment();//"boardのIDを取得"
 
 	for(var rank = 1; rank <= 9; rank++){
 	for(var file = 1; file <= 9; file++){
-		var c = piece_board[p.Board[rank][file]].cloneNode(true); //駒画像の要素を複製
+		var c = piece_board[p.Board[rank][file]].cloneNode(true); //駒画像の要素を複製コピー作成の感じ
 		c.style.left = 20 + ((file - 1) * 46) + "px";         //位置を調節
 		c.style.top = 20 + ((rank - 1) * 46) + "px";
 		c.removeAttribute("id");
-		fragment.appendChild(c);
+		fragment.appendChild(c);   //"board"に駒画像のノードを追加
 
-		if(p.Board[rank][file] != EMPTY && p.Board[rank][file] != OUT_OF_BOARD){  //もしマスに駒があれば
+		if(p.Board[rank][file] != EMPTY && p.Board[rank][file] != OUT_OF_BOARD){  //もしマスに駒があれば①
 			(function(){
 				var _rank = rank, _file = file;    //rankとfileは1ずつ足されていくので覚えておく
 				var ocp_pos = new PiecePos(rank,file);
@@ -696,9 +708,9 @@ var showBoard = function(p){
 			})();
 		}
 
-		if(p.Board[rank][file] == EMPTY){    //もしマスに駒がなければ
+		if(p.Board[rank][file] == EMPTY){    //もしマスに駒がなければ②
 			(function(){
-				var emp_pos = new PiecePos(rank,file);
+				var emp_pos = new PiecePos(rank,file);//emp_pos で一つのマス
 				c.onclick = function(){
 					SelectEmptyCell(p,emp_pos);
 					}
