@@ -4,13 +4,11 @@
 	<title>JavaScript将棋盤</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<!-- ポーリングできてないし大分よくない -->
-	<meta http-equiv="refresh" content="10; URL=">
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- <script type="text/javascript" src="./js/polling.js"></script> -->
 	<!-- <script type="text/javascript" src="./js/shogi.js"></script>  -->
 	<script type="text/javascript" th:inline="javascript">
+
 	/*<![CDATA[*/
 
 	//コメントをどんどん追加していこう。それで理解していく 関数 定義と呼び出しの区別
@@ -1180,6 +1178,12 @@
 		var TebanMessage = document.getElementById("TebanMessage");
 		//innerHTMLで表示
 		(p.turn) ? TebanMessage.innerHTML = "先手番です<br>" : TebanMessage.innerHTML = "後手番です<br>";
+
+		if(p.turn){
+			setTimeout(function () {
+			    location.reload();
+			},5000);
+		};
 	};
 
 
